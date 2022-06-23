@@ -6,6 +6,8 @@ import webbrowser
 import os
 import smtplib
 
+chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 # print(voices[1].id)
@@ -74,20 +76,20 @@ if __name__ == "__main__":
             speak(results)
 
         elif 'open youtube' in query:
-            webbrowser.open("youtube.com")
+            webbrowser.get(chrome_path).open("youtube.com")
 
         elif 'open google' in query:
-            webbrowser.open("google.com")
+            webbrowser.get(chrome_path).open("google.com")
 
         elif 'open stackoverflow' in query:
-            webbrowser.open("stackoverflow.com")   
+            webbrowser.get(chrome_path).open("stackoverflow.com")   
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
             speak(f"Sir, the time is {strTime}")
 
         elif 'open code' in query:
-            codePath = "C:\\Users\\dell\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio Code"
+            codePath = "C:\\Users\\dell\\AppData\Local\\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(codePath)
 
         elif 'email to harry' in query:
